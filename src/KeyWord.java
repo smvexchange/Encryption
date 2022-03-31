@@ -8,10 +8,6 @@ public class KeyWord {
         this.messageLength = messageLength;
     }
 
-    public String getKeyWord() {
-        return keyWord;
-    }
-
     public StringBuilder getKeyPass() {
         int i = 0;
         int j = 0;

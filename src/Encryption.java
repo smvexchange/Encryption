@@ -1,13 +1,13 @@
 public class Encryption {
-    private StringBuilder message;
+    private final StringBuilder message;
     private final StringBuilder keyPass;
-    private int[] overflow;
+    private final int[] overflow;
 
 
     public Encryption(StringBuilder message, StringBuilder keyPass) {
-        Time time = new Time();
-        this.message = time.getTime().append(message);
-        this.keyPass = time.getTime().append(keyPass);
+        this.message = message;
+        this.keyPass = keyPass;
+        overflow = new int[message.length()];
     }
 
     public StringBuilder getMessage() {
@@ -25,7 +25,7 @@ public class Encryption {
                 this.message.setCharAt(i, (char) (((int) message.charAt(i)) + ((int) keyPass.charAt(i))));
             } else {
                 this.message.setCharAt(i, (char) ((((int) message.charAt(i)) + ((int) keyPass.charAt(i))) % 255));
-                overflow[index] = i;
+                overflow[index] = 1;
                 index++;
             }
         }
